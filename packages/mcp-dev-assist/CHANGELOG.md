@@ -1,5 +1,11 @@
 # @googleworkspace/mcp-dev-assist
 
+## 0.0.3
+
+### Patch Changes
+
+- 765a6b2: Update documentation
+
 ## 0.0.2
 
 ### Patch Changes
