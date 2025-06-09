@@ -40,6 +40,9 @@ jobs:
       - run: pnpm config set '//wombat-dressing-room.appspot.com/:_authToken' "${NPM_WOMBAT_TOKEN}"
         env:
           NPM_WOMBAT_TOKEN: ${{ secrets.NPM_WOMBAT_TOKEN }}
+      - run: |
+          git config --global user.name "googleworkspace-bot"
+          git config --global user.email "googleworkspace-bot@google.com"
       - uses: changesets/action@e0145edc7d9d8679003495b11f87bd8ef63c0cba # v1.5.3
         env:
           GITHUB_TOKEN: ${{secrets.GOOGLEWORKSPACE_BOT_TOKEN}}
