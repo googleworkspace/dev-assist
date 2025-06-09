@@ -18,24 +18,7 @@ import * as cheerio from "cheerio";
 import { got, gotScraping } from "got-scraping";
 import { toMarkdown } from "./utils.js";
 
-export function getResourceUri(uri: URL): string {
-	// check if extension such as png, jpg, etc.
-	if (
-		["png", "jpg", "jpeg", "gif", "webp"].includes(
-			uri.pathname.split(".").pop()?.toLowerCase() ?? "",
-		)
-	) {
-		return uri.toString();
-	}
-
-	if (uri.hostname === "developers.google.com") {
-		return `docs://${uri.hostname}${uri.pathname}`;
-	}
-
-	return uri.toString();
-}
-
-export async function read(uri: URL): Promise<string> {
+export async function getDocumentationPageMarkdown(uri: URL): Promise<string> {
 	const mdUri = new URL(uri);
 	mdUri.pathname += ".md.txt";
 
@@ -68,7 +51,7 @@ export async function read(uri: URL): Promise<string> {
 	return markdown;
 }
 
-export async function releaseNotes(): Promise<
+export async function getReleaseNotes(): Promise<
 	{ updated: string; id: string; markdown: string }[]
 > {
 	const feeds = [

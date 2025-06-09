@@ -14,16 +14,13 @@
  * limitations under the License.
  */
 
-import {
-	McpServer,
-	ResourceTemplate,
-} from "@modelcontextprotocol/sdk/server/mcp.js";
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
-import { getResourceUri, read, releaseNotes } from "./read.js";
+import { getDocumentationPageMarkdown, getReleaseNotes } from "./read.js";
 import { search } from "./search.js";
 
 const INSTRUCTIONS = {
-	DOCS: "Always read ALL MCP documentation resources, e.g. `docs://developers.google.com/**`, for the full document.",
+	DOCS: "Always read ALL MCP documentation resources, e.g. `https://developers.google.com/**`, for the full document.",
 	RELEASE_NOTES:
 		"ALWAYS read MCP resource, `docs://release-notes`, for information about new features, changes, and bug fixes.",
 };
@@ -54,7 +51,7 @@ export const createServer = () => {
 		"Google Workspace Release Notes",
 		"docs://release-notes",
 		async () => {
-			const notes = await releaseNotes();
+			const notes = await getReleaseNotes();
 			return {
 				contents: [
 					{
@@ -72,30 +69,10 @@ export const createServer = () => {
 	);
 
 	server.resource(
-		"Documentation - Read a specific Google documentation page.",
-		new ResourceTemplate("docs://developers.google.com{+link}", {
-			list: undefined,
-		}),
-		async (uri, { link }) => {
-			const markdown = await read(
-				new URL(`https://developers.google.com${link}`),
-			);
-			return {
-				contents: [
-					{
-						uri: uri.href,
-						text: markdown,
-					},
-				],
-			};
-		},
-	);
-
-	server.resource(
 		"Newsletters - Get the latest news about Google Workspace from the Google Workspace Developer newsletters.",
 		"docs://newsletters",
 		async (uri) => {
-			const markdown = await read(
+			const markdown = await getDocumentationPageMarkdown(
 				new URL("https://developers.google.com/workspace/newsletters"),
 			);
 			return {
@@ -145,7 +122,7 @@ export const createServer = () => {
 			// read the first TOP_N results
 			const resultsWithMarkdown = await Promise.all(
 				searchResults.slice(0, TOP_N).map(async (result) => {
-					const markdown = await read(new URL(result.link));
+					const markdown = await getDocumentationPageMarkdown(new URL(result.link));
 					return {
 						...result,
 						markdown,
@@ -159,15 +136,12 @@ export const createServer = () => {
 			const text = [
 				"## Results",
 				...resultsWithMarkdown.flatMap(({ link, markdown }) => [
-					`### ${getResourceUri(new URL(link))}`,
+					`### ${link}`,
 					markdown,
 				]),
 				"## Additional results that must be read manually:",
 				remainingSearchResults
-					.map(
-						({ link, title }) =>
-							`- ${getResourceUri(new URL(link))} - ${title}`,
-					)
+					.map(({ link, title }) => `- ${link} - ${title}`)
 					.join("\n"),
 				// repeat server instructions
 				...Object.values(INSTRUCTIONS),
@@ -186,12 +160,12 @@ export const createServer = () => {
 
 	server.tool(
 		"read_official_google_documentation_page",
-		"Reads a specific Google documentation page. Use this when you need to read a specific documentation page instead of using a web browser. Provides special handling for links to Google documentation pages.",
+		"Reads a specific Google developer documentation page. Use this when you need to read a specific documentation page instead of using a web browser. This tool provides special handling for links to Google documentation pages and parsing of documentation content.",
 		{
 			link: z
 				.string()
 				.regex(
-					/^(docs|https)?:\/\/(developers|cloud).google.com\//,
+					/^https:\/\/(developers|cloud).google.com\//,
 					"Link must be a URL to a Google documentation page.",
 				)
 				.describe("Link to the documentation page."),
@@ -204,8 +178,7 @@ export const createServer = () => {
 			openWorldHint: true,
 		},
 		async ({ link }) => {
-			link = link.replace("docs://", "https://");
-			const markdown = await read(new URL(link));
+			const markdown = await getDocumentationPageMarkdown(new URL(link));
 			return {
 				content: [
 					{

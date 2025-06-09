@@ -15,7 +15,7 @@
  */
 
 import { describe, expect, it } from "vitest";
-import { toMarkdown, transformLinkToResource } from "./utils.js";
+import { toMarkdown, toAbsoluteUrl } from "./utils.js";
 
 describe("toMarkdown", () => {
 	it("should convert html to markdown", async () => {
@@ -203,7 +203,7 @@ describe("toMarkdown", () => {
 				new URL("https://developers.google.com"),
 			);
 			await expect(markdown).resolves.toMatchInlineSnapshot(
-				`"[foo](docs://developers.google.com/foo)"`,
+				`"[foo](https://developers.google.com/foo)"`,
 			);
 		});
 		describe("transformLinkToResource", () => {
@@ -216,29 +216,33 @@ describe("toMarkdown", () => {
 				["mailto:foo@example.com", DGC, "mailto:foo@example.com"],
 				["tel:+123456789", DGC, "tel:+123456789"],
 				["ftp://example.com", DGC, "ftp://example.com"],
-				["foo", DGC, "docs://developers.google.com/foo"],
-				["foo/with/path", DGC, "docs://developers.google.com/foo/with/path"],
-				["/foo", DGC, "docs://developers.google.com/foo"],
-				["./foo", DGC, "docs://developers.google.com/foo"],
+				["foo", DGC, "https://developers.google.com/foo"],
+				["foo/with/path", DGC, "https://developers.google.com/foo/with/path"],
+				["/foo", DGC, "https://developers.google.com/foo"],
+				["./foo", DGC, "https://developers.google.com/foo"],
 				[
 					"./foo",
 					new URL("/baz/bar", DGC),
-					"docs://developers.google.com/baz/foo",
+					"https://developers.google.com/baz/foo",
 				],
 				[
 					"../foo",
 					new URL("/baz/bar", DGC),
-					"docs://developers.google.com/foo",
+					"https://developers.google.com/foo",
 				],
 				["/foo", EXAMPLE, "https://example.com/foo"],
-				["//developers.google.com", DGC, "docs://developers.google.com/"],
-				["http://developers.google.com", DGC, "docs://developers.google.com/"],
-				["https://developers.google.com", DGC, "docs://developers.google.com/"],
+				["//developers.google.com", DGC, "https://developers.google.com/"],
+				["http://developers.google.com", DGC, "http://developers.google.com/"],
+				[
+					"https://developers.google.com",
+					DGC,
+					"https://developers.google.com/",
+				],
 				["//example.com", EXAMPLE, "https://example.com/"],
 				["http://example.com", EXAMPLE, "http://example.com/"],
 				["https://example.com", EXAMPLE, "https://example.com/"],
 			])("should transform '%s' to '%s'", (url, contentUrl, expected) => {
-				expect(transformLinkToResource(url, contentUrl)).toBe(expected);
+				expect(toAbsoluteUrl(url, contentUrl)).toBe(expected);
 			});
 		});
 	});

@@ -24,7 +24,6 @@ import remarkStringify from "remark-stringify";
 import { unified } from "unified";
 import { remove } from "unist-util-remove";
 import { visit } from "unist-util-visit";
-import { getResourceUri } from "./read.js";
 
 /**
  * Converts HTML to Markdown.
@@ -67,7 +66,7 @@ export async function toMarkdown(
 		.use(() => {
 			return (tree) => {
 				visit(tree, "link", (node: MDast.Link) => {
-					node.url = transformLinkToResource(node.url, contentUrl);
+					node.url = toAbsoluteUrl(node.url, contentUrl);
 				});
 			};
 		})
@@ -101,7 +100,7 @@ function isParagraph(node: MDast.Node): node is MDast.Paragraph {
 	return node.type === "paragraph";
 }
 
-export function transformLinkToResource(url: string, contentUrl: URL): string {
+export function toAbsoluteUrl(url: string, contentUrl: URL): string {
 	// Immediately return empty strings or pure fragment identifiers
 	if (url === "" || url.startsWith("#")) {
 		return url;
@@ -136,12 +135,5 @@ export function transformLinkToResource(url: string, contentUrl: URL): string {
 		return url; // Return the original URL for non-HTTP/S protocols
 	}
 
-	try {
-		return getResourceUri(absoluteUrl);
-	} catch (error) {
-		console.error(
-			`Failed to get resource URI for: "${absoluteUrl.href}". Error: ${error}`,
-		);
-		return absoluteUrl.href; // Return the resolved absolute URL if getResourceUri fails
-	}
+	return absoluteUrl.href;
 }
