@@ -52,4 +52,4 @@ jobs:
           commit: "chore: release"
           commitMode: github-api
           setupGitUser: false
-          publish: pnpm publish -r --no-git-checks --provenance
+          publish: pnpm exec changeset tag && pnpm publish -r --no-git-checks --provenance
