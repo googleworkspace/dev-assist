@@ -1,0 +1,41 @@
+{
+  "name": "@repository/root",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@9.3.0",
+  "scripts": {
+    "build": "turbo run build",
+    "changeset": "changeset",
+    "check": "turbo run check",
+    "dev": "turbo run dev",
+    "format": "prettier --write . && biome format --write .",
+    "lint": "prettier --check . && biome check",
+    "prepare": "husky",
+    "test": "turbo run test"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@changesets/cli": "^2.29.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.0",
+    "prettier": "^3.5.3",
+    "turbo": "^2.5.4",
+    "vitest": "^3.1.3"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,ts}": [
+      "biome check --write"
+    ],
+    "**/*.{html,yaml,yml,md}": [
+      "prettier --write"
+    ]
+  }
+}
