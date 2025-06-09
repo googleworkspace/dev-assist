@@ -9,7 +9,7 @@
     "changeset:empty": "pnpm changeset --empty",
     "check": "turbo run check",
     "clean": "turbo clean",
-    "ci:release": "changeset publish && git push --follow-tags",
+    "ci:release": "changeset publish",
     "ci:version": "changeset version && pnpm install --lockfile-only --engine-strict=false",
     "dev": "turbo run dev",
     "format": "prettier --write . && biome format --write .",
