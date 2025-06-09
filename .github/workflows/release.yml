@@ -45,4 +45,7 @@ jobs:
           GITHUB_TOKEN: ${{secrets.GOOGLEWORKSPACE_BOT_TOKEN}}
           NPM_WOMBAT_TOKEN: ${{ secrets.NPM_WOMBAT_TOKEN }}
         with:
+          title: "chore: release"
+          commit: "chore: release"
+          setupGitUser: false
           publish: pnpm publish -r --no-git-checks --provenance
