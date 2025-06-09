@@ -122,7 +122,9 @@ export const createServer = () => {
 			// read the first TOP_N results
 			const resultsWithMarkdown = await Promise.all(
 				searchResults.slice(0, TOP_N).map(async (result) => {
-					const markdown = await getDocumentationPageMarkdown(new URL(result.link));
+					const markdown = await getDocumentationPageMarkdown(
+						new URL(result.link),
+					);
 					return {
 						...result,
 						markdown,
