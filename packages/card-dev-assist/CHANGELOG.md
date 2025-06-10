@@ -1,5 +1,11 @@
 # @googleworkspace/card-dev-assist
 
+## 0.2.0
+
+### Minor Changes
+
+- ab2364d: Rename package.
+
 ## 0.1.2
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@googleworkspace/card-dev-assist",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Utility functions for Google Workspace card development.",
   "license": "Apache-2.0",
   "author": {
