@@ -16,7 +16,6 @@
 
 import { getScreenshot } from "@googleworkspace/card-dev-assist";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { M } from "vitest/dist/chunks/reporters.d.DL9pg5DB.js";
 import { z } from "zod";
 import { getDocumentationPageMarkdown, getReleaseNotes } from "./read.js";
 import { search } from "./search.js";
