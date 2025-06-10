@@ -1,5 +1,13 @@
 # @googleworkspace/mcp-dev-assist
 
+## 0.1.2
+
+### Patch Changes
+
+- d5bf310: Fix package files.
+- Updated dependencies [d5bf310]
+  - @googleworkspace/uikit-dev-assist@0.1.2
+
 ## 0.1.1
 
 ### Patch Changes

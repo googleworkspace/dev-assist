@@ -1,5 +1,11 @@
 # @googleworkspace/uikit-dev-assist
 
+## 0.1.2
+
+### Patch Changes
+
+- d5bf310: Fix package files.
+
 ## 0.1.1
 
 ### Patch Changes
