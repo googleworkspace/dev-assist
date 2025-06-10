@@ -1,5 +1,11 @@
 # @googleworkspace/mcp-dev-assist
 
+## 0.2.2
+
+### Patch Changes
+
+- 84277e7: Update tool name and description.
+
 ## 0.2.1
 
 ### Patch Changes
