@@ -34,7 +34,7 @@ export const createServer = () => {
 			description:
 				"Google Workspace Docs MCP, provides access to Google Workspace documentation, release notes, and search functionality to find information about Google Workspace APIs and services.",
 		},
-		{ capabilities: { logging: {} } },
+		{ capabilities: { logging: {}, resources: {}, tools: {} } },
 	);
 
 	server.resource("Server Instructions", "docs://instructions", async (uri) => {
