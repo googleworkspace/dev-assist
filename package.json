@@ -12,7 +12,7 @@
     "ci:release": "changeset publish",
     "ci:version": "changeset version && pnpm install --lockfile-only --engine-strict=false",
     "dev": "turbo run dev",
-    "format": "prettier --write . && biome format --write .",
+    "format": "prettier --write . && biome check --write .",
     "lint": "prettier --check . && biome check",
     "prepare": "husky",
     "test": "turbo run test"

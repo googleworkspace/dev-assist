@@ -15,7 +15,7 @@
  */
 
 import { describe, expect, it } from "vitest";
-import { toMarkdown, toAbsoluteUrl } from "./utils.js";
+import { toAbsoluteUrl, toMarkdown } from "./utils.js";
 
 describe("toMarkdown", () => {
 	it("should convert html to markdown", async () => {
