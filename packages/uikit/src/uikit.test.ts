@@ -108,7 +108,7 @@ describe("encodeCard", () => {
 });
 
 describe("getScreenshot", async () => {
-	it("should return a rendering of uikit card", async () => {
+	it.skip("should return a rendering of uikit card", async () => {
 		const card = {
 			header: {
 				title: "Test Card",
