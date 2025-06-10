@@ -1,5 +1,11 @@
 # @googleworkspace/mcp-dev-assist
 
+## 0.2.1
+
+### Patch Changes
+
+- 948be4b: Explicity add capabilities for tools and resources.
+
 ## 0.2.0
 
 ### Minor Changes
