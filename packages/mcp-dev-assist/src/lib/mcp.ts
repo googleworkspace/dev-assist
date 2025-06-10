@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import { getScreenshot } from "@googleworkspace/uikit-dev-assist";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import { getDocumentationPageMarkdown, getReleaseNotes } from "./read.js";
@@ -186,6 +187,36 @@ export const createServer = () => {
 					{
 						type: "text",
 						text: markdown,
+					},
+				],
+			};
+		},
+	);
+
+	server.tool(
+		"preview_google_workspace_uikit_card",
+		"Generates a preview of a Google Workspace UI Kit card. Use this tool to visualize how a card will look in Google Workspace applications. UIKit is for Google Workspace Add-ons and Chat Apps. The card is defined using the Google Workspace UI Kit JSON format. Read the docs at `https://developers.google.com/workspace/add-ons/concepts/card-interfaces` for more information on how to create cards.",
+		{
+			card: z
+				.object({})
+				.passthrough()
+				.describe("The Google Workspace UI Kit card JSON object."),
+		},
+		{
+			title: "Preview Google Workspace UI Kit Card rendering",
+			readOnlyHint: true,
+			destructiveHint: false,
+			idempotentHint: true,
+			openWorldHint: true,
+		},
+		async ({ card }) => {
+			const data = await getScreenshot(card);
+			return {
+				content: [
+					{
+						type: "image",
+						data,
+						mimeType: "image/png",
 					},
 				],
 			};

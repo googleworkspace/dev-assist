@@ -1,0 +1,17 @@
+# Ignore everything
+*
+
+# Add built files
+!dist/*.d.ts
+!dist/**/*.js
+!dist/**/*.map
+
+# Add source files
+!src/**/*.ts
+
+# Add configuration files
+!.env.sample
+
+# Add documentation specific files
+!SECURITY.md
+!CHANGELOG.md
