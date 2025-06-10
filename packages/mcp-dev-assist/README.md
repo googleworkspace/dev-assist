@@ -10,17 +10,6 @@
 
 An MCP (Model Context Protocol) server that provides tools for accessing and searching Google Workspace documentation. This server enables AI assistants and other tools to retrieve up-to-date information about Google Workspace APIs and services.
 
-- [Tools](#tools)
-  - [`search_latest_official_google_documentation`](#search_latest_official_google_documentation)
-  - [`read_official_google_documentation_page`](#read_official_google_documentation_page)
-  - [`preview_google_workspace_card`](#preview_google_workspace_card)
-- [Resources](#resources)
-  - [`docs://instructions`](#docsinstructions)
-  - [`docs://release-notes`](#docsrelease-notes)
-  - [`docs://newsletters`](#docsnewsletters)
-- [Usage](#usage)
-  - [Client Configuration](#client-configuration)
-
 ## Tools
 
 This server provides the following tools:
