@@ -1,5 +1,13 @@
 # @googleworkspace/mcp-dev-assist
 
+## 0.3.1
+
+### Patch Changes
+
+- 8907947: Move chromium to deps.
+- Updated dependencies [8907947]
+  - @googleworkspace/card-dev-assist@0.2.2
+
 ## 0.3.0
 
 ### Minor Changes

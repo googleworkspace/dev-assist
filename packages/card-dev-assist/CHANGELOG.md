@@ -1,5 +1,11 @@
 # @googleworkspace/card-dev-assist
 
+## 0.2.2
+
+### Patch Changes
+
+- 8907947: Move chromium to deps.
+
 ## 0.2.1
 
 ### Patch Changes
