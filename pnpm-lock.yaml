@@ -38,9 +38,9 @@ importers:
 
   packages/mcp-dev-assist:
     dependencies:
-      '@googleworkspace/uikit-dev-assist':
+      '@googleworkspace/card-dev-assist':
         specifier: workspace:*
-        version: link:../uikit-dev-assist
+        version: link:../card-dev-assist
       '@modelcontextprotocol/sdk':
         specifier: ^1.11.0
         version: 1.12.1
@@ -109,7 +109,7 @@ importers:
         specifier: ^3.2.2
         version: 3.2.3(@types/debug@4.1.12)(@types/node@22.15.30)(tsx@4.19.4)(yaml@2.8.0)
 
-  packages/uikit-dev-assist:
+  packages/card-dev-assist:
     dependencies:
       playwright:
         specifier: ^1.52.0

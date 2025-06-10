@@ -1,4 +1,4 @@
-# @googleworkspace/uikit-dev-assist
+# @googleworkspace/card-dev-assist
 
 ## 0.1.2
 
@@ -16,7 +16,7 @@
 
 ### Minor Changes
 
-- 8ab82d1: Add tool for rendering UIKit cards.
+- 8ab82d1: Add tool for rendering card cards.
 
 ### Patch Changes
 

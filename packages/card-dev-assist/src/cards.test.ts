@@ -16,7 +16,7 @@
 
 import { describe, expect, it } from "vitest";
 
-import { encodeCard, getScreenshot } from "./uikit.js";
+import { encodeCard, getScreenshot } from "./cards.js";
 
 import zlib from "node:zlib";
 
@@ -108,7 +108,7 @@ describe("encodeCard", () => {
 });
 
 describe("getScreenshot", async () => {
-	it.skip("should return a rendering of uikit card", async () => {
+	it.skip("should return a rendering of card card", async () => {
 		const card = {
 			header: {
 				title: "Test Card",
