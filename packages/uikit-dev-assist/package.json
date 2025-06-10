@@ -1,7 +1,7 @@
 {
   "name": "@googleworkspace/uikit-dev-assist",
   "version": "0.1.1",
-  "description": "",
+  "description": "Utility functions for Google Workspace UIKit development.",
   "license": "Apache-2.0",
   "author": {
     "name": "Justin Poehnelt",
@@ -24,8 +24,8 @@
   ],
   "type": "module",
   "bin": {},
-  "main": "src/index.ts",
-  "types": "src/index.d.ts",
+  "main": "dist/index.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "check": "tsc --noEmit",
