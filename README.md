@@ -15,6 +15,12 @@ An MCP (Model Context Protocol) server that provides tools for accessing and sea
 
 See [packages/mcp-dev-assist/README.md](packages/mcp-dev-assist/README.md) for more details.
 
+### `@googleworkspace/uikit-dev-assist`
+
+A utility library for generating previews of Google UIkit components.
+
+See [packages/uikit/README.md](packages/uikit/README.md) for more details.
+
 ## Development
 
 Contributions are welcome! Please see our [Contributing Guide](CONTRIBUTING.md) for more information.
