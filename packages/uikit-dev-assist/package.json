@@ -1,6 +1,6 @@
 {
   "name": "@googleworkspace/uikit-dev-assist",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Utility functions for Google Workspace UIKit development.",
   "license": "Apache-2.0",
   "author": {
