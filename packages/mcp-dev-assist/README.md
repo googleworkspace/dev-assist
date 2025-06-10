@@ -1,6 +1,6 @@
 # Google Workspace MCP Dev Assist
 
-[![npm version](https://badge.fury.io/js/%40googleworkspace%2Fmcp-dev-assist.svg)](https://badge.fury.io/js/%40googleworkspace%2Fmcp-dev-assist)
+[![npm version](https://badge.fury.io/js/%40googleworkspace%2Fmcp-dev-assist.svg)](https://www.npmjs.com/package/@googleworkspace/mcp-dev-assist)
 
 An MCP (Model Context Protocol) server that provides tools for accessing and searching Google Workspace documentation. This server enables AI assistants and other tools to retrieve up-to-date information about Google Workspace APIs and services.
 

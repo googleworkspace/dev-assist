@@ -1,6 +1,6 @@
 # Google Workspace UIKit
 
-[![npm version](https://badge.fury.io/js/%40googleworkspace%2Fuikit.svg)](https://badge.fury.io/js/%40googleworkspace%2Fuikit)
+[![npm version](https://badge.fury.io/js/%40googleworkspace%2Fuikit-dev-assist.svg)](https://www.npmjs.com/package/@googleworkspace/uikit-dev-assist)
 
 A utility library for generating previews of Google UIkit components. This package provides tools to render and visualize UIkit cards, making it easier to develop and test Google Workspace Add-ons.
 
