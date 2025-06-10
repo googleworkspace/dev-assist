@@ -44,9 +44,7 @@ An MCP (Model Context Protocol) server that provides tools for accessing and sea
   - [`docs://release-notes`](#docsrelease-notes)
   - [`docs://newsletters`](#docsnewsletters)
 - [Usage](#usage)
-  - [Prerequisites](#prerequisites)
-  - [Configuration](#configuration)
-  - [Run the server locally](#run-the-server-locally)
+  - [Client Configuration](#client-configuration)
 
 <!-- /packages -->
 

@@ -15,31 +15,47 @@
  * limitations under the License.
  */
 
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { app } from "./app.js";
 import { ENV } from "./lib/env.js";
+import { createServer } from "./lib/mcp.js";
 
-// Create server and listen on the specified port
-const server = app.listen(ENV.PORT, () => {
-	console.log(
-		`MCP Stateless Streamable HTTP Server listening on port ${ENV.PORT}`,
-	);
+async function main() {
+	if (process.argv.includes("--stdio")) {
+		const server = createServer();
+		const transport = new StdioServerTransport();
+		await server.connect(transport);
+		console.log("MCP Stdio Server listening on stdin/stdout");
+	} else {
+		// Create server and listen on the specified port
+		const server = app.listen(ENV.PORT, () => {
+			console.log(
+				`MCP Stateless Streamable HTTP Server listening on port ${ENV.PORT}`,
+			);
+		});
+
+		// Handle graceful shutdown for different signals
+		const shutdownGracefully = async (signal: string) => {
+			console.log(`Received ${signal}. Shutting down server gracefully...`);
+			server.close(() => {
+				console.log("Server closed successfully");
+				process.exit(0);
+			});
+
+			// Force close after timeout
+			setTimeout(() => {
+				console.log("Forcing server shutdown after timeout");
+				process.exit(1);
+			}, 10000);
+		};
+
+		// Cloud Run sends SIGTERM for graceful shutdown
+		process.on("SIGTERM", () => shutdownGracefully("SIGTERM"));
+		process.on("SIGINT", () => shutdownGracefully("SIGINT"));
+	}
+}
+
+main().catch((err) => {
+	console.error(err);
+	process.exit(1);
 });
-
-// Handle graceful shutdown for different signals
-const shutdownGracefully = async (signal: string) => {
-	console.log(`Received ${signal}. Shutting down server gracefully...`);
-	server.close(() => {
-		console.log("Server closed successfully");
-		process.exit(0);
-	});
-
-	// Force close after timeout
-	setTimeout(() => {
-		console.log("Forcing server shutdown after timeout");
-		process.exit(1);
-	}, 10000);
-};
-
-// Cloud Run sends SIGTERM for graceful shutdown
-process.on("SIGTERM", () => shutdownGracefully("SIGTERM"));
-process.on("SIGINT", () => shutdownGracefully("SIGINT"));
