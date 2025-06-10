@@ -9,17 +9,33 @@ This is a monorepo for the Google Workspace Developer Assist project.
 
 ## Packages
 
-### `@googleworkspace/mcp-dev-assist`
+<!-- packages -->
+
+### [@googleworkspace/mcp-dev-assist](packages/mcp-dev-assist)
+
+[![npm version](https://img.shields.io/npm/v/%40googleworkspace%2Fmcp-dev-assist)](https://www.npmjs.com/package/@googleworkspace/mcp-dev-assist)
+![NPM Downloads](https://img.shields.io/npm/dm/%40googleworkspace%2Fmcp-dev-assist)
+![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/googleworkspace/dev-assist)
+![GitHub last commit](https://img.shields.io/github/last-commit/googleworkspace/dev-assist)
+![GitHub License](https://img.shields.io/github/license/googleworkspace/dev-assist)
+[![Test](https://github.com/googleworkspace/dev-assist/actions/workflows/test.yml/badge.svg)](https://github.com/googleworkspace/dev-assist/actions/workflows/test.yml)
+[![Release](https://github.com/googleworkspace/dev-assist/actions/workflows/release.yml/badge.svg)](https://github.com/googleworkspace/dev-assist/actions/workflows/release.yml)
 
 An MCP (Model Context Protocol) server that provides tools for accessing and searching Google Workspace documentation. This server enables AI assistants and other tools to retrieve up-to-date information about Google Workspace APIs and services.
 
-See [packages/mcp-dev-assist/README.md](packages/mcp-dev-assist/README.md) for more details.
+### [@googleworkspace/uikit-dev-assist](packages/uikit-dev-assist)
 
-### `@googleworkspace/uikit-dev-assist`
+[![npm version](https://img.shields.io/npm/v/%40googleworkspace%2Fuikit-dev-assist)](https://www.npmjs.com/package/@googleworkspace/uikit-dev-assist)
+![NPM Downloads](https://img.shields.io/npm/dm/%40googleworkspace%2Fuikit-dev-assist)
+![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/googleworkspace/dev-assist)
+![GitHub last commit](https://img.shields.io/github/last-commit/googleworkspace/dev-assist)
+![GitHub License](https://img.shields.io/github/license/googleworkspace/dev-assist)
+[![Test](https://github.com/googleworkspace/dev-assist/actions/workflows/test.yml/badge.svg)](https://github.com/googleworkspace/dev-assist/actions/workflows/test.yml)
+[![Release](https://github.com/googleworkspace/dev-assist/actions/workflows/release.yml/badge.svg)](https://github.com/googleworkspace/dev-assist/actions/workflows/release.yml)
 
-A utility library for generating previews of Google UIkit components.
+A utility library for generating previews of Google UIkit components. This package provides tools to render and visualize UIkit cards, making it easier to develop and test Google Workspace Add-ons.
 
-See [packages/uikit/README.md](packages/uikit/README.md) for more details.
+<!-- /packages -->
 
 ## Development
 
@@ -37,6 +53,12 @@ To add a new version for a pull request, run:
 
 ```bash
 pnpm changeset add
+```
+
+If changes are made to the documentation, you can update the documentation by running:
+
+```bash
+pnpm readme
 ```
 
 ## License

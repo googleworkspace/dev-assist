@@ -9,6 +9,7 @@
     "changeset:empty": "pnpm changeset --empty",
     "check": "turbo run check",
     "clean": "turbo clean",
+    "readme": "tsx scripts/readme.ts",
     "ci:release": "changeset publish",
     "ci:version": "changeset version && pnpm install --lockfile-only --engine-strict=false",
     "dev": "turbo run dev",
@@ -20,9 +21,11 @@
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@changesets/cli": "^2.29.4",
+    "@types/node": "^22.15.30",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.0",
     "prettier": "^3.5.3",
+    "tsx": "^4.19.4",
     "turbo": "^2.5.4",
     "vitest": "^3.1.3"
   },
