@@ -1,5 +1,11 @@
 # @googleworkspace/uikit-dev-assist
 
+## 0.1.1
+
+### Patch Changes
+
+- 66e7643: Update readme
+
 ## 0.1.0
 
 ### Minor Changes
