@@ -19,9 +19,7 @@ An MCP (Model Context Protocol) server that provides tools for accessing and sea
   - [`docs://release-notes`](#docsrelease-notes)
   - [`docs://newsletters`](#docsnewsletters)
 - [Usage](#usage)
-  - [Prerequisites](#prerequisites)
-  - [Configuration](#configuration)
-  - [Run the server locally](#run-the-server-locally)
+  - [Client Configuration](#client-configuration)
 
 ## Tools
 
@@ -111,26 +109,40 @@ Provides access to the Google Workspace Developer newsletters.
 
 ## Usage
 
-### Prerequisites
+This package requires a Google API Key with Custom Search API enabled and a Google Custom Search Engine ID. These should be provided as environment variables to the server.
 
-- Google API Key with Custom Search API enabled
-- Google Custom Search Engine ID
+The `GOOGLE_SEARCH_ENGINE_ID` can be set to this search engine ID: `701ecba480bf443fa`. This search engine is configured to search across all Google Workspace documentation.
 
-### Configuration
+This package can be used as a `stdio` server or as an `http` server.
 
-Set the following environment variables:
+### Stdio Transport
 
-```bash
-export GOOGLE_API_KEY=your_api_key_here
-export GOOGLE_SEARCH_ENGINE_ID=701ecba480bf443fa  # You can customize this
+Here is an example of how to configure an MCP client to use this server via `stdio`:
+
+```json
+{
+  "type": "stdio",
+  "command": "npx",
+  "args": ["-y", "@googleworkspace/mcp-dev-assist", "--stdio"],
+  "env": {
+    "GOOGLE_API_KEY": "YOUR_API_KEY",
+    "GOOGLE_SEARCH_ENGINE_ID": "701ecba480bf443fa"
+  }
+}
 ```
 
-### Run the server locally
+### Streamable HTTP Transport
 
-```bash
-pnpx @googleworkspace/mcp-dev-assist
+To run the server in `http` mode, you can run `npx @googleworkspace/mcp-dev-assist` with the following environment variables set:
+
+- `GOOGLE_API_KEY`: `Your Google API Key with Custom Search API enabled`.
+- `GOOGLE_SEARCH_ENGINE_ID`: `701ecba480bf443fa`.
+
+Here is an example of how to configure an MCP client to use this server via `http`:
+
+```json
+{
+  "type": "streamable-http",
+  "url": "http://localhost:8080/mcp"
+}
 ```
-
-This exposes an MCP server on `http://localhost:8080/mcp` for `Streamable HTTP` requests and a legacy `SSE` endpoint at `http://localhost:8080/`.
-
-A hosted version will be available soon!

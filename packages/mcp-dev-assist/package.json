@@ -36,6 +36,7 @@
     "deploy:dev": "gcloud run deploy workspace-docs-mcp --source . --project public-workspace-docs-mcp-dev --region us-central1",
     "deploy:prod": "gcloud run deploy workspace-docs-mcp --source . --project public-workspace-docs-mcp-dev --region us-central1",
     "dev": "tsx watch src/index.ts",
+    "dev:stdio": "tsx watch src/index.ts --stdio",
     "inspect": "pnpx @modelcontextprotocol/inspector",
     "test": "vitest --coverage"
   },
