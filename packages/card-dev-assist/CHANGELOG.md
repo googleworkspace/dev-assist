@@ -1,5 +1,11 @@
 # @googleworkspace/card-dev-assist
 
+## 0.2.1
+
+### Patch Changes
+
+- 4ff080e: Fix exports.
+
 ## 0.2.0
 
 ### Minor Changes
