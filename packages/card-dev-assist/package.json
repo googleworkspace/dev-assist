@@ -1,7 +1,7 @@
 {
-  "name": "@googleworkspace/uikit-dev-assist",
+  "name": "@googleworkspace/card-dev-assist",
   "version": "0.1.2",
-  "description": "Utility functions for Google Workspace UIKit development.",
+  "description": "Utility functions for Google Workspace card development.",
   "license": "Apache-2.0",
   "author": {
     "name": "Justin Poehnelt",
@@ -20,10 +20,9 @@
     "google workspace",
     "documentation",
     "developer tools",
-    "uikit"
+    "card"
   ],
   "type": "module",
-  "bin": {},
   "main": "dist/index.ts",
   "types": "dist/index.d.ts",
   "scripts": {

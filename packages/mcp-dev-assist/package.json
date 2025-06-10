@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.11.0",
-    "@googleworkspace/uikit-dev-assist": "workspace:*",
+    "@googleworkspace/card-dev-assist": "workspace:*",
     "cheerio": "^1.0.0",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",

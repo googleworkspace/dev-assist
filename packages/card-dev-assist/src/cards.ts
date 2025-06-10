@@ -39,7 +39,7 @@ export function encodeCard(jsonObject: Record<string, unknown>): string {
 export async function getScreenshot(
 	card: Record<string, unknown>,
 ): Promise<string> {
-	const url = new URL("https://addons.gsuite.google.com/uikit/builder");
+	const url = new URL("https://addons.gsuite.google.com/card/builder");
 
 	url.searchParams.set("card", encodeCard(card));
 

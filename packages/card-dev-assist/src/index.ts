@@ -14,4 +14,4 @@
  * limitations under the License.
  */
 
-export { getScreenshot } from "./uikit.js";
+export { getScreenshot } from "./cards.js";

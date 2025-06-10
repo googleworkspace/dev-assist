@@ -6,7 +6,7 @@
 
 - d5bf310: Fix package files.
 - Updated dependencies [d5bf310]
-  - @googleworkspace/uikit-dev-assist@0.1.2
+  - @googleworkspace/card-dev-assist@0.1.2
 
 ## 0.1.1
 
@@ -14,19 +14,19 @@
 
 - 66e7643: Update readme
 - Updated dependencies [66e7643]
-  - @googleworkspace/uikit-dev-assist@0.1.1
+  - @googleworkspace/card-dev-assist@0.1.1
 
 ## 0.1.0
 
 ### Minor Changes
 
-- 8ab82d1: Add tool for rendering UIKit cards.
+- 8ab82d1: Add tool for rendering card cards.
 
 ### Patch Changes
 
 - Updated dependencies [8ab82d1]
 - Updated dependencies [af1900c]
-  - @googleworkspace/uikit-dev-assist@0.1.0
+  - @googleworkspace/card-dev-assist@0.1.0
 
 ## 0.0.3
 
