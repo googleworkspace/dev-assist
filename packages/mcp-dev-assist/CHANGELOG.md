@@ -1,5 +1,16 @@
 # @googleworkspace/mcp-dev-assist
 
+## 0.3.0
+
+### Minor Changes
+
+- 4c05c0d: feat: Add `--stdio` flag for stdio-based communication
+
+### Patch Changes
+
+- Updated dependencies [4ff080e]
+  - @googleworkspace/card-dev-assist@0.2.1
+
 ## 0.2.2
 
 ### Patch Changes
