@@ -1,5 +1,16 @@
 # @googleworkspace/mcp-dev-assist
 
+## 0.2.0
+
+### Minor Changes
+
+- ab2364d: Rename package.
+
+### Patch Changes
+
+- Updated dependencies [ab2364d]
+  - @googleworkspace/card-dev-assist@0.2.0
+
 ## 0.1.2
 
 ### Patch Changes
