@@ -194,16 +194,16 @@ export const createServer = () => {
 	);
 
 	server.tool(
-		"preview_google_workspace_card_card",
-		"Generates a preview of a Google Workspace UI Kit card. Use this tool to visualize how a card will look in Google Workspace applications. card is for Google Workspace Add-ons and Chat Apps. The card is defined using the Google Workspace UI Kit JSON format. Read the docs at `https://developers.google.com/workspace/add-ons/concepts/card-interfaces` for more information on how to create cards.",
+		"preview_google_workspace_card",
+		"Generates a preview of a Google Workspace Card framework. Use this tool to visualize how a card will look in Google Workspace applications. card is for Google Workspace Add-ons and Chat Apps. The card is defined using the Google Workspace UI Kit JSON format. Read the docs at `https://developers.google.com/workspace/add-ons/concepts/card-interfaces` for more information on how to create cards.",
 		{
 			card: z
 				.object({})
 				.passthrough()
-				.describe("The Google Workspace UI Kit card JSON object."),
+				.describe("The Google Workspace Card framework JSON object."),
 		},
 		{
-			title: "Preview Google Workspace UI Kit Card rendering",
+			title: "Preview Google Workspace Card JSON rendering",
 			readOnlyHint: true,
 			destructiveHint: false,
 			idempotentHint: true,
