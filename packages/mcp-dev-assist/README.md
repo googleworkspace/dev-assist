@@ -10,12 +10,104 @@
 
 An MCP (Model Context Protocol) server that provides tools for accessing and searching Google Workspace documentation. This server enables AI assistants and other tools to retrieve up-to-date information about Google Workspace APIs and services.
 
-## Features
+- [Tools](#tools)
+  - [`search_latest_official_google_documentation`](#search_latest_official_google_documentation)
+  - [`read_official_google_documentation_page`](#read_official_google_documentation_page)
+  - [`preview_google_workspace_card`](#preview_google_workspace_card)
+- [Resources](#resources)
+  - [`docs://instructions`](#docsinstructions)
+  - [`docs://release-notes`](#docsrelease-notes)
+  - [`docs://newsletters`](#docsnewsletters)
+- [Usage](#usage)
+  - [Prerequisites](#prerequisites)
+  - [Configuration](#configuration)
+  - [Run the server locally](#run-the-server-locally)
 
-- Search Google Workspace documentation
-- Read official Google Workspace documentation pages
-- Access release notes and updates
-- Simple integration with any MCP-compatible client supporting `Streamable HTTP` requests and a legacy `SSE` endpoint.
+## Tools
+
+This server provides the following tools:
+
+### `search_latest_official_google_documentation`
+
+Searches the latest official Google Workspace documentation, including API references, conceptual guides, tutorials, and code examples. Ideal for finding authoritative and up-to-date information on Google Workspace APIs, directly from the source.
+
+**Parameters:**
+
+- `query` (string): Specific Google Workspace topic, API, method, or feature to search for.
+
+**Example:**
+
+```json
+{
+  "tool": "search_latest_official_google_documentation",
+  "query": "Google Sheets API append values"
+}
+```
+
+### `read_official_google_documentation_page`
+
+Reads a specific Google developer documentation page. Use this when you need to read a specific documentation page instead of using a web browser.
+
+**Parameters:**
+
+- `link` (string): The URL of the documentation page to read. Must be a `developers.google.com` or `cloud.google.com` URL.
+
+**Example:**
+
+```json
+{
+  "tool": "read_official_google_documentation_page",
+  "link": "https://developers.google.com/workspace/add-ons/overview"
+}
+```
+
+### `preview_google_workspace_card`
+
+Generates a preview of a Google Workspace UI Kit card. Use this tool to visualize how a card will look in Google Workspace applications.
+
+**Parameters:**
+
+- `card` (object): The Google Workspace UI Kit card JSON object.
+
+**Example:**
+
+```json
+{
+  "tool": "preview_google_workspace_card",
+  "card": {
+    "header": {
+      "title": "My Card"
+    },
+    "sections": [
+      {
+        "widgets": [
+          {
+            "textParagraph": {
+              "text": "Hello, world!"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+## Resources
+
+This server provides the following resources:
+
+### `docs://instructions`
+
+Provides instructions on how to best use the tools provided by this server.
+
+### `docs://release-notes`
+
+Provides the latest release notes for Google Workspace products.
+
+### `docs://newsletters`
+
+Provides access to the Google Workspace Developer newsletters.
 
 ## Usage
 
