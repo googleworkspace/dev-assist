@@ -1,5 +1,11 @@
 # @googleworkspace/card-dev-assist
 
+## 0.3.1
+
+### Patch Changes
+
+- cbd3219: Use built-in zlib.
+
 ## 0.3.0
 
 ### Minor Changes

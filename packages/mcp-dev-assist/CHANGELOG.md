@@ -1,5 +1,13 @@
 # @googleworkspace/mcp-dev-assist
 
+## 0.4.2
+
+### Patch Changes
+
+- cbd3219: Use built-in zlib.
+- Updated dependencies [cbd3219]
+  - @googleworkspace/card-dev-assist@0.3.1
+
 ## 0.4.1
 
 ### Patch Changes
