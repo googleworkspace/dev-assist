@@ -1,5 +1,11 @@
 # @googleworkspace/card-dev-assist
 
+## 0.2.3
+
+### Patch Changes
+
+- 4ed7e29: Use playwright install in postinstall.
+
 ## 0.2.2
 
 ### Patch Changes
