@@ -36,17 +36,23 @@ export function encodeCard(jsonObject: Record<string, unknown>): string {
 	return base64String;
 }
 
-export async function getScreenshot(
-	card: Record<string, unknown>,
-): Promise<string> {
-	const url = new URL("https://addons.gsuite.google.com/card/builder");
+export function getBuilderURL(card: Record<string, unknown>): string {
+	const url = new URL("https://addons.gsuite.google.com/uikit/builder");
 
 	url.searchParams.set("card", encodeCard(card));
+
+	return url.toString();
+}
+
+export async function previewCard(
+	card: Record<string, unknown>,
+): Promise<{ screenshot: string; url: string }> {
+	const url = getBuilderURL(card);
 
 	const browser = await chromium.launch();
 	const page = await browser.newPage();
 
-	await page.goto(url.toString(), {});
+	await page.goto(url, {});
 
 	const executeButton = page.locator('button[aria-label="Execute"]');
 	await executeButton.click();
@@ -64,5 +70,5 @@ export async function getScreenshot(
 
 	await browser.close();
 
-	return screenshot;
+	return { screenshot, url };
 }

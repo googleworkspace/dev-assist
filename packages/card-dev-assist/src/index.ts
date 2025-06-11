@@ -14,4 +14,4 @@
  * limitations under the License.
  */
 
-export { getScreenshot } from "./cards.js";
+export { previewCard } from "./cards.js";
