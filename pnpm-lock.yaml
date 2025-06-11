@@ -38,9 +38,6 @@ importers:
 
   packages/card-dev-assist:
     dependencies:
-      '@playwright/browser-chromium':
-        specifier: ^1.52.0
-        version: 1.53.0
       playwright:
         specifier: ^1.52.0
         version: 1.52.0
@@ -496,10 +493,6 @@ packages:
   '@pkgjs/parseargs@0.11.0':
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
-
-  '@playwright/browser-chromium@1.53.0':
-    resolution: {integrity: sha512-hWCvLaPPiKD4BnaDQTDQU7IfuvB6uUTze6RJKB3egAqQx06fF76jpwXRS+2nr2ByysB/3yy4slcQEgx4wmDukw==}
-    engines: {node: '>=18'}
 
   '@rollup/rollup-android-arm-eabi@4.42.0':
     resolution: {integrity: sha512-gldmAyS9hpj+H6LpRNlcjQWbuKUtb94lodB9uCz71Jm+7BxK1VIOo7y62tZZwxhA7j1ylv/yQz080L5WkS+LoQ==}
@@ -1919,11 +1912,6 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  playwright-core@1.53.0:
-    resolution: {integrity: sha512-mGLg8m0pm4+mmtB7M89Xw/GSqoNC+twivl8ITteqvAndachozYe2ZA7srU6uleV1vEdAHYqjq+SV8SNxRRFYBw==}
-    engines: {node: '>=18'}
-    hasBin: true
-
   playwright@1.52.0:
     resolution: {integrity: sha512-JAwMNMBlxJ2oD1kce4KPtMkDeKGHQstdpFPcPH3maElAXon/QZeTvtsfXmTMRyO9TslfoYOXkSsvao2nE1ilTw==}
     engines: {node: '>=18'}
@@ -2868,10 +2856,6 @@ snapshots:
 
   '@pkgjs/parseargs@0.11.0':
     optional: true
-
-  '@playwright/browser-chromium@1.53.0':
-    dependencies:
-      playwright-core: 1.53.0
 
   '@rollup/rollup-android-arm-eabi@4.42.0':
     optional: true
@@ -4536,8 +4520,6 @@ snapshots:
   pkce-challenge@5.0.0: {}
 
   playwright-core@1.52.0: {}
-
-  playwright-core@1.53.0: {}
 
   playwright@1.52.0:
     dependencies:
