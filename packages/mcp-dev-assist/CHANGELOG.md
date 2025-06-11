@@ -1,5 +1,13 @@
 # @googleworkspace/mcp-dev-assist
 
+## 0.3.2
+
+### Patch Changes
+
+- 4ed7e29: Use playwright install in postinstall.
+- Updated dependencies [4ed7e29]
+  - @googleworkspace/card-dev-assist@0.2.3
+
 ## 0.3.1
 
 ### Patch Changes
