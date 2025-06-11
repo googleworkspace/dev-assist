@@ -69,24 +69,6 @@ export const createServer = () => {
 		},
 	);
 
-	server.resource(
-		"Newsletters - Get the latest news about Google Workspace from the Google Workspace Developer newsletters.",
-		"docs://newsletters",
-		async (uri) => {
-			const markdown = await getDocumentationPageMarkdown(
-				new URL("https://developers.google.com/workspace/newsletters"),
-			);
-			return {
-				contents: [
-					{
-						uri: uri.href,
-						text: markdown,
-					},
-				],
-			};
-		},
-	);
-
 	server.tool(
 		"search_latest_official_google_documentation",
 		"Searches the latest official Google Workspace documentation, including API references, conceptual guides, tutorials, and code examples. Ideal for finding authoritative and up-to-date information on Google Workspace APIs, directly from the source. Use this when you need reliable details on specific features, functionalities, or development tasks within the Google Workspace ecosystem. Read the server instructions, `docs://instructions`, before using this tool.",
