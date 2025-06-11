@@ -33,7 +33,32 @@ A utility library for generating previews of Google card components. This packag
 [![Test](https://github.com/googleworkspace/dev-assist/actions/workflows/test.yml/badge.svg)](https://github.com/googleworkspace/dev-assist/actions/workflows/test.yml)
 [![Release](https://github.com/googleworkspace/dev-assist/actions/workflows/release.yml/badge.svg)](https://github.com/googleworkspace/dev-assist/actions/workflows/release.yml)
 
-An MCP (Model Context Protocol) server that provides tools for accessing and searching Google Workspace documentation. This server enables AI assistants and other tools to retrieve up-to-date information about Google Workspace APIs and services.
+A [Model Context Protocol](https://modelcontextprotocol.io/), server that provides tools for accessing and searching Google Workspace documentation.
+
+> The Model Context Protocol (MCP) is a standard that enables AI assistants to access external tools and data through a network of specialized servers.
+
+This server enables AI assistants and other tools to:
+
+- Retrieve up-to-date information about Google Workspace APIs and services
+- Preview Google Workspace Cards
+
+To get started, you can add this server to your MCP client configuration.
+
+```json
+{
+  "type": "stdio",
+  "command": "npx",
+  "args": ["-y", "@googleworkspace/mcp-dev-assist", "--stdio"],
+  "env": {
+    "GOOGLE_API_KEY": "YOUR_API_KEY",
+    "GOOGLE_SEARCH_ENGINE_ID": "701ecba480bf443fa"
+  }
+}
+```
+
+> **Tip:** Try installing with `npm i -g @googleworkspace/mcp-dev-assist` to be able to debug installation issues.
+
+See the [usage](https://github.com/googleworkspace/dev-assist/tree/main/packages/mcp-dev-assist#usage) section for more details on how to configure and run this server including HTTP transport options.
 
 <!-- /packages -->
 

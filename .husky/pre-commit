@@ -1,3 +1,4 @@
 #!/bin/sh
 
 pnpm exec lint-staged
+pnpm readme
