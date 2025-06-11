@@ -16,7 +16,7 @@
 
 import { describe, expect, it } from "vitest";
 
-import { encodeCard, getScreenshot } from "./cards.js";
+import { encodeCard, getBuilderURL, previewCard } from "./cards.js";
 
 import zlib from "node:zlib";
 
@@ -107,7 +107,7 @@ describe("encodeCard", () => {
 	});
 });
 
-describe("getScreenshot", async () => {
+describe("previewCard", async () => {
 	it.skip("should return a rendering of card card", async () => {
 		const card = {
 			header: {
@@ -125,15 +125,26 @@ describe("getScreenshot", async () => {
 			],
 		};
 
-		const data = await getScreenshot(card);
-		expect(typeof data).toBe("string");
-		expect(data.length).toBeGreaterThan(0);
-		expect(data).toMatchImageSnapshot({
+		const { screenshot } = await previewCard(card);
+		expect(typeof screenshot).toBe("string");
+		expect(screenshot.length).toBeGreaterThan(0);
+		expect(screenshot).toMatchImageSnapshot({
 			comparisonMethod: "ssim",
 			allowSizeMismatch: true,
 			failureThreshold: 0.1,
 			failureThresholdType: "percent",
 			blur: 2,
 		});
+	});
+});
+
+describe("getBuilderURL", () => {
+	it("should return a valid URL with encoded card data", () => {
+		const card = { title: "Test Card" };
+		const url = getBuilderURL(card);
+
+		expect(url).toContain("https://addons.gsuite.google.com/uikit/builder");
+		expect(url).toContain("card=");
+		expect(url).toMatch(/card=[a-zA-Z0-9+/=]+/);
 	});
 });

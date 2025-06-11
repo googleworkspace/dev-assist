@@ -1,0 +1,14 @@
+{
+	"mcpServers": {
+		"packages/mcp-dev-assist": {
+			"type": "streamable-http",
+			"url": "http://localhost:8080/mcp",
+			"disabled": false,
+			"alwaysAllow": [
+				"search_latest_official_google_documentation",
+				"read_official_google_documentation_page",
+				"preview_google_workspace_card"
+			]
+		}
+	}
+}

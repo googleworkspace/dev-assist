@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { getScreenshot } from "@googleworkspace/card-dev-assist";
+import { previewCard } from "@googleworkspace/card-dev-assist";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import { getDocumentationPageMarkdown, getReleaseNotes } from "./read.js";
@@ -210,12 +210,18 @@ export const createServer = () => {
 			openWorldHint: true,
 		},
 		async ({ card }) => {
-			const data = await getScreenshot(card);
+			const { screenshot, url } = await previewCard(card);
+
+			server.server.sendLoggingMessage({
+				data: `Previewing card at ${url}`,
+				level: "info",
+			});
+
 			return {
 				content: [
 					{
 						type: "image",
-						data,
+						data: screenshot,
 						mimeType: "image/png",
 					},
 				],
