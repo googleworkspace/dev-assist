@@ -1,5 +1,11 @@
 # @googleworkspace/mcp-dev-assist
 
+## 0.4.1
+
+### Patch Changes
+
+- c819a0e: Remove newsletter resource that wasn't functional.
+
 ## 0.4.0
 
 ### Minor Changes
