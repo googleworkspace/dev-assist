@@ -1,5 +1,11 @@
 # @googleworkspace/mcp-dev-assist
 
+## 0.4.3
+
+### Patch Changes
+
+- 50065f1: Improve documentation for MCP server.
+
 ## 0.4.2
 
 ### Patch Changes
