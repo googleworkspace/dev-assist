@@ -8,7 +8,32 @@
 [![Test](https://github.com/googleworkspace/dev-assist/actions/workflows/test.yml/badge.svg)](https://github.com/googleworkspace/dev-assist/actions/workflows/test.yml)
 [![Release](https://github.com/googleworkspace/dev-assist/actions/workflows/release.yml/badge.svg)](https://github.com/googleworkspace/dev-assist/actions/workflows/release.yml)
 
-An MCP (Model Context Protocol) server that provides tools for accessing and searching Google Workspace documentation. This server enables AI assistants and other tools to retrieve up-to-date information about Google Workspace APIs and services.
+A [Model Context Protocol](https://modelcontextprotocol.io/), server that provides tools for accessing and searching Google Workspace documentation.
+
+> The Model Context Protocol (MCP) is a standard that enables AI assistants to access external tools and data through a network of specialized servers.
+
+This server enables AI assistants and other tools to:
+
+- Retrieve up-to-date information about Google Workspace APIs and services
+- Preview Google Workspace Cards
+
+To get started, you can add this server to your MCP client configuration.
+
+```json
+{
+  "type": "stdio",
+  "command": "npx",
+  "args": ["-y", "@googleworkspace/mcp-dev-assist", "--stdio"],
+  "env": {
+    "GOOGLE_API_KEY": "YOUR_API_KEY",
+    "GOOGLE_SEARCH_ENGINE_ID": "701ecba480bf443fa"
+  }
+}
+```
+
+> **Tip:** Try installing with `npm i -g @googleworkspace/mcp-dev-assist` to be able to debug installation issues.
+
+See the [usage](https://github.com/googleworkspace/dev-assist/tree/main/packages/mcp-dev-assist#usage) section for more details on how to configure and run this server including HTTP transport options.
 
 ## Tools
 
@@ -52,6 +77,8 @@ Reads a specific Google developer documentation page. Use this when you need to 
 
 Generates a preview of a Google Workspace Card. Use this tool to visualize how a card will look in Google Workspace applications.
 
+> **Note**: Not all MCP clients support rendering images returned by MCP tools, so the preview may not be visible in all clients. However, a successful response indicates that the card is valid and can be rendered in Google Workspace applications.
+
 **Parameters:**
 
 - `card` (object): The Google Workspace Card JSON object.
@@ -91,6 +118,8 @@ Provides instructions on how to best use the tools provided by this server.
 ### `docs://release-notes`
 
 Provides the latest release notes for Google Workspace products.
+
+> **Note**: Resources are not available in all MCP clients.
 
 ## Usage
 
@@ -148,3 +177,11 @@ Here is an example of how to configure an MCP client to use this server via `std
   }
 }
 ```
+
+> **Tip:** Try installing with `npm i -g @googleworkspace/mcp-dev-assist` to be able to debug installation issues.
+
+### Hosted MCP Server
+
+Coming soon!
+
+We will provide a hosted version of this MCP server that you can use without needing to run it locally. Stay tuned for updates and follow this issue for more details: https://github.com/googleworkspace/dev-assist/issues/24
