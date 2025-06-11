@@ -1,5 +1,11 @@
 # @googleworkspace/card-dev-assist
 
+## 0.3.0
+
+### Minor Changes
+
+- dd0e1de: Fix Card preview url and export url.
+
 ## 0.2.3
 
 ### Patch Changes

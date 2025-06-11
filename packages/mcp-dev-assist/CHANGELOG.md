@@ -1,5 +1,17 @@
 # @googleworkspace/mcp-dev-assist
 
+## 0.4.0
+
+### Minor Changes
+
+- dd0e1de: Fix Card preview url and export url.
+
+### Patch Changes
+
+- 59957a5: Improve documentation for running locally.
+- Updated dependencies [dd0e1de]
+  - @googleworkspace/card-dev-assist@0.3.0
+
 ## 0.3.2
 
 ### Patch Changes
