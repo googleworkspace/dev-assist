@@ -50,11 +50,11 @@ Reads a specific Google developer documentation page. Use this when you need to 
 
 ### `preview_google_workspace_card`
 
-Generates a preview of a Google Workspace UI Kit card. Use this tool to visualize how a card will look in Google Workspace applications.
+Generates a preview of a Google Workspace Card. Use this tool to visualize how a card will look in Google Workspace applications.
 
 **Parameters:**
 
-- `card` (object): The Google Workspace UI Kit card JSON object.
+- `card` (object): The Google Workspace Card JSON object.
 
 **Example:**
 
@@ -91,10 +91,6 @@ Provides instructions on how to best use the tools provided by this server.
 ### `docs://release-notes`
 
 Provides the latest release notes for Google Workspace products.
-
-### `docs://newsletters`
-
-Provides access to the Google Workspace Developer newsletters.
 
 ## Usage
 
