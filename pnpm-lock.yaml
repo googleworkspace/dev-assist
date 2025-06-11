@@ -41,9 +41,6 @@ importers:
       playwright:
         specifier: ^1.52.0
         version: 1.52.0
-      zlib:
-        specifier: ^1.0.5
-        version: 1.0.5
     devDependencies:
       '@types/jest-image-snapshot':
         specifier: ^6.4.0
@@ -2467,10 +2464,6 @@ packages:
     resolution: {integrity: sha512-4lLa/EcQCB0cJkyts+FpIRx5G/llPxfP6VQU5KByHEhLxY3IJCH0f0Hy1MHI8sClTvsIb8qwRJ6R/ZdlDJ/leQ==}
     engines: {node: '>= 14.6'}
     hasBin: true
-
-  zlib@1.0.5:
-    resolution: {integrity: sha512-40fpE2II+Cd3k8HWTWONfeKE2jL+P42iWJ1zzps5W51qcTsOUKM5Q5m2PFb0CLxlmFAaUuUdJGc3OfZy947v0w==}
-    engines: {node: '>=0.2.0'}
 
   zod-to-json-schema@3.24.5:
     resolution: {integrity: sha512-/AuWwMP+YqiPbsJx5D6TfgRTc4kTLjsh5SOcd4bLsfUg2RcEXrFMJl1DGgdHy2aCfsIA/cr/1JM0xcB2GZji8g==}
@@ -5124,8 +5117,6 @@ snapshots:
   wrappy@1.0.2: {}
 
   yaml@2.8.0: {}
-
-  zlib@1.0.5: {}
 
   zod-to-json-schema@3.24.5(zod@3.25.56):
     dependencies:
