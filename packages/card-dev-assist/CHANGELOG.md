@@ -1,5 +1,11 @@
 # @googleworkspace/card-dev-assist
 
+## 0.4.0
+
+### Minor Changes
+
+- e2b8058: Export `getBuilderUrl()`
+
 ## 0.3.1
 
 ### Patch Changes
