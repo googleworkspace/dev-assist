@@ -18,7 +18,7 @@ import { previewCard } from "@googleworkspace/card-dev-assist";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import { getDocumentationPageMarkdown, getReleaseNotes } from "./read.js";
-import { search } from "./search.js";
+import { searchLite } from "./search.js";
 
 const INSTRUCTIONS = {
 	DOCS: "Always read ALL MCP documentation resources, e.g. `https://developers.google.com/**`, for the full document.",
@@ -99,7 +99,7 @@ export const createServer = () => {
 				};
 			}
 
-			const searchResults = await search(query);
+			const searchResults = await searchLite(query);
 			const TOP_N = 3;
 
 			// read the first TOP_N results
