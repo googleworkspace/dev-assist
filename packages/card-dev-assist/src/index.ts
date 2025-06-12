@@ -14,4 +14,4 @@
  * limitations under the License.
  */
 
-export { previewCard } from "./cards.js";
+export { previewCard, getBuilderURL } from "./cards.js";
