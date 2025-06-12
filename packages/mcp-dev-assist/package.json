@@ -41,8 +41,9 @@
     "test": "vitest --coverage"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.11.0",
+    "@google-cloud/discoveryengine": "^2.2.0",
     "@googleworkspace/card-dev-assist": "workspace:*",
+    "@modelcontextprotocol/sdk": "^1.11.0",
     "cheerio": "^1.0.0",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",

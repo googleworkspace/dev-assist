@@ -24,5 +24,9 @@ export const ENV = z
 		PORT: z.coerce.number().default(Number(process.env.PORT) || 8080),
 		GOOGLE_API_KEY: z.string(),
 		GOOGLE_SEARCH_ENGINE_ID: z.string().default("701ecba480bf443fa"),
+		GOOGLE_DISCOVERY_ENGINE_ID: z
+			.string()
+			.default("mcp-dev-assist_1749747393714"),
+		GOOGLE_PROJECT_NUMBER: z.number().default(594592560835),
 	})
 	.parse(process.env);
