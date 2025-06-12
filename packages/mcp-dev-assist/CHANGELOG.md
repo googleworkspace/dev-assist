@@ -1,5 +1,16 @@
 # @googleworkspace/mcp-dev-assist
 
+## 0.5.0
+
+### Minor Changes
+
+- b029eeb: Use Vertex AI Search `searchLite` method.
+
+### Patch Changes
+
+- Updated dependencies [e2b8058]
+  - @googleworkspace/card-dev-assist@0.4.0
+
 ## 0.4.3
 
 ### Patch Changes
