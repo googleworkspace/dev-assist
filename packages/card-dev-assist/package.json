@@ -37,7 +37,7 @@
     "postinstall": "playwright install chromium"
   },
   "dependencies": {
-    "playwright": "^1.52.0"
+    "playwright": "^1.53.0"
   },
   "devDependencies": {
     "@types/jest-image-snapshot": "^6.4.0",
