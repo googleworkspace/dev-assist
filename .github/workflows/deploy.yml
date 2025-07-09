@@ -13,12 +13,7 @@
 # limitations under the License.
 
 name: Deploy
-on:
-  push:
-    tags:
-      - "v*"
-    branches:
-      - main
+on: [push]
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 jobs:
   release:
