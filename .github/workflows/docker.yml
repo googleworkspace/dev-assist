@@ -35,8 +35,12 @@ jobs:
       - id: meta
         uses: docker/metadata-action@902fa8ec7d6ecbf8d84d538b9b233a880e428804 # v5.7.0
         with:
-          images: |
-            ghcr.io/googleworkspace/mcp-dev-assist
+          images: ghcr.io/${{ github.repository }}
+          tags: |
+            type=ref,event=branch
+            type=ref,event=tag
+            type=sha
+            type=semver,pattern={{version}}
       - uses: docker/build-push-action@v6
         with:
           context: .
