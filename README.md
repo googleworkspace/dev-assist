@@ -1,3 +1,7 @@
+**NOTE:** Refactor in progress. This code is not currently functional. Please submit issues with ideas and feedback.
+
+---
+
 # Google Workspace Developer Assist
 
 [![Test](https://github.com/googleworkspace/dev-assist/actions/workflows/test.yml/badge.svg)](https://github.com/googleworkspace/dev-assist/actions/workflows/test.yml)
