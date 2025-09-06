@@ -15,9 +15,9 @@ This is a monorepo for the Google Workspace Developer Assist project.
 
 <!-- packages -->
 
-- [@googleworkspace/card-dev-assist}](./packages/card-dev-assist) - Utility functions for Google Workspace card development.
+- [@googleworkspace/card-dev-assist](./packages/card-dev-assist) - Utility functions for Google Workspace card development.
 
-- [@googleworkspace/mcp-dev-assist}](./packages/mcp-dev-assist) - An MCP (Model Context Protocol) server for accessing and searching Google Workspace documentation, enabling AI assistants and tools to retrieve up-to-date information.
+- [@googleworkspace/mcp-dev-assist](./packages/mcp-dev-assist) - An MCP (Model Context Protocol) server for accessing and searching Google Workspace documentation, enabling AI assistants and tools to retrieve up-to-date information.
 
 <!-- /packages -->
 
