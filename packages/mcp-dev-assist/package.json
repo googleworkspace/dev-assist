@@ -38,7 +38,7 @@
     "dev": "tsx watch src/index.ts",
     "dev:stdio": "tsx watch src/index.ts --stdio",
     "inspect": "pnpx @modelcontextprotocol/inspector",
-    "test": "vitest --coverage"
+    "test": "vitest --coverage --passWithNoTests"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.11.0"
