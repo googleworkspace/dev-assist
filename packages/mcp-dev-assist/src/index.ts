@@ -14,45 +14,130 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+import { Client } from "@modelcontextprotocol/sdk/client/index.js";
+import { StreamableHTTPClientTransport } from "@modelcontextprotocol/sdk/client/streamableHttp.js";
+import { Server } from "@modelcontextprotocol/sdk/server/index.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { app } from "./app.js";
-import { ENV } from "./lib/env.js";
-import { createServer } from "./lib/mcp.js";
+import {
+	CallToolRequestSchema,
+	CompleteRequestSchema,
+	GetPromptRequestSchema,
+	ListPromptsRequestSchema,
+	ListResourceTemplatesRequestSchema,
+	ListResourcesRequestSchema,
+	ListToolsRequestSchema,
+	LoggingMessageNotificationSchema,
+	ReadResourceRequestSchema,
+	ResourceUpdatedNotificationSchema,
+	SubscribeRequestSchema,
+	UnsubscribeRequestSchema,
+} from "@modelcontextprotocol/sdk/types.js";
+import pkg from "../package.json" with { type: "json" };
 
 async function main() {
-	if (process.argv.includes("--stdio")) {
-		const server = createServer();
-		const transport = new StdioServerTransport();
-		await server.connect(transport);
-		console.log("MCP Stdio Server listening on stdin/stdout");
-	} else {
-		// Create server and listen on the specified port
-		const server = app.listen(ENV.PORT, () => {
-			console.log(
-				`MCP Stateless Streamable HTTP Server listening on port ${ENV.PORT}`,
-			);
+	const transport = new StreamableHTTPClientTransport(
+		new URL("http://34.102.165.10/mcp"),
+	);
+	const client = new Client(
+		{
+			name: pkg.name,
+			description: pkg.description,
+			version: pkg.version,
+		},
+		{
+			capabilities: {},
+		},
+	);
+
+	await client.connect(transport);
+
+	const serverVersion = client.getServerVersion() as {
+		name: string;
+		version: string;
+	};
+
+	const serverCapabilities = client.getServerCapabilities();
+
+	const server = new Server(serverVersion, {
+		capabilities: serverCapabilities,
+	});
+
+	if (serverCapabilities?.logging) {
+		server.setNotificationHandler(
+			LoggingMessageNotificationSchema,
+			async (args) => {
+				return client.notification(args);
+			},
+		);
+		client.setNotificationHandler(
+			LoggingMessageNotificationSchema,
+			async (args) => {
+				return server.notification(args);
+			},
+		);
+	}
+
+	if (serverCapabilities?.prompts) {
+		server.setRequestHandler(GetPromptRequestSchema, async (args) => {
+			return client.getPrompt(args.params);
 		});
 
-		// Handle graceful shutdown for different signals
-		const shutdownGracefully = async (signal: string) => {
-			console.log(`Received ${signal}. Shutting down server gracefully...`);
-			server.close(() => {
-				console.log("Server closed successfully");
-				process.exit(0);
+		server.setRequestHandler(ListPromptsRequestSchema, async (args) => {
+			return client.listPrompts(args.params);
+		});
+	}
+
+	if (serverCapabilities?.resources) {
+		server.setRequestHandler(ListResourcesRequestSchema, async (args) => {
+			return client.listResources(args.params);
+		});
+
+		server.setRequestHandler(
+			ListResourceTemplatesRequestSchema,
+			async (args) => {
+				return client.listResourceTemplates(args.params);
+			},
+		);
+
+		server.setRequestHandler(ReadResourceRequestSchema, async (args) => {
+			return client.readResource(args.params);
+		});
+
+		if (serverCapabilities?.resources.subscribe) {
+			server.setNotificationHandler(
+				ResourceUpdatedNotificationSchema,
+				async (args) => {
+					return client.notification(args);
+				},
+			);
+
+			server.setRequestHandler(SubscribeRequestSchema, async (args) => {
+				return client.subscribeResource(args.params);
 			});
 
-			// Force close after timeout
-			setTimeout(() => {
-				console.log("Forcing server shutdown after timeout");
-				process.exit(1);
-			}, 10000);
-		};
-
-		// Cloud Run sends SIGTERM for graceful shutdown
-		process.on("SIGTERM", () => shutdownGracefully("SIGTERM"));
-		process.on("SIGINT", () => shutdownGracefully("SIGINT"));
+			server.setRequestHandler(UnsubscribeRequestSchema, async (args) => {
+				return client.unsubscribeResource(args.params);
+			});
+		}
 	}
+
+	if (serverCapabilities?.tools) {
+		server.setRequestHandler(CallToolRequestSchema, async (args) => {
+			return client.callTool(args.params);
+		});
+
+		server.setRequestHandler(ListToolsRequestSchema, async (args) => {
+			return client.listTools(args.params);
+		});
+	}
+
+	server.setRequestHandler(CompleteRequestSchema, async (args) => {
+		return client.complete(args.params);
+	});
+
+	// Connect and listen on stdio
+	const stdioTransport = new StdioServerTransport();
+	await server.connect(stdioTransport);
 }
 
 main().catch((err) => {

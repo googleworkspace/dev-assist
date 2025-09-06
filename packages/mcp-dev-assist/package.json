@@ -38,35 +38,16 @@
     "dev": "tsx watch src/index.ts",
     "dev:stdio": "tsx watch src/index.ts --stdio",
     "inspect": "pnpx @modelcontextprotocol/inspector",
-    "test": "vitest --coverage"
+    "test": "vitest --coverage --passWithNoTests"
   },
   "dependencies": {
-    "@google-cloud/discoveryengine": "^2.2.0",
-    "@googleworkspace/card-dev-assist": "workspace:*",
-    "@modelcontextprotocol/sdk": "^1.11.0",
-    "cheerio": "^1.0.0",
-    "dotenv": "^16.5.0",
-    "express": "^5.1.0",
-    "got-scraping": "^4.1.1",
-    "hast-util-is-element": "^3.0.0",
-    "rehype-parse": "^9.0.1",
-    "rehype-remark": "^10.0.1",
-    "remark-gfm": "^4.0.1",
-    "remark-stringify": "^11.0.0",
-    "unified": "^11.0.5",
-    "unist-util-remove": "^4.0.0",
-    "unist-util-visit": "^5.0.0",
-    "zod": "^3.24.4"
+    "@modelcontextprotocol/sdk": "^1.11.0"
   },
   "devDependencies": {
-    "@types/express": "^5.0.2",
-    "@types/hast": "^3.0.4",
-    "@types/mdast": "^4.0.4",
-    "@types/node": "^22.13.14",
-    "@vitest/coverage-v8": "^3.2.2",
     "tsx": "^4.19.4",
     "typescript": "^5.8.2",
-    "vitest": "^3.2.2"
+    "@vitest/coverage-v8": "^3.2.4",
+    "vitest": "^3.2.4"
   },
   "publishConfig": {
     "access": "public",
