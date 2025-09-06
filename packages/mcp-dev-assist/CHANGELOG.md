@@ -1,5 +1,11 @@
 # @googleworkspace/mcp-dev-assist
 
+## 0.6.0
+
+### Minor Changes
+
+- 817def7: Proxy MCP to preview hosted server.
+
 ## 0.5.0
 
 ### Minor Changes
