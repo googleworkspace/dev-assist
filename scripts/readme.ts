@@ -22,13 +22,14 @@ const PACKAGES_DIRECTORY = "packages";
 const readmeFiles = readdirSync(PACKAGES_DIRECTORY, { withFileTypes: true })
 	.filter((dirent) => dirent.isDirectory())
 	.map((dirent) => {
-		return readFileSync(
-			join(PACKAGES_DIRECTORY, dirent.name, "README.md"),
-			"utf8",
-		)
-			.split("## ")[0]
-			.trim()
-			.replace(/# (.*)/g, `### [$1](${PACKAGES_DIRECTORY}/${dirent.name})`);
+		const pkg = JSON.parse(
+			readFileSync(
+				join(PACKAGES_DIRECTORY, dirent.name, "package.json"),
+				"utf8",
+			),
+		);
+
+		return `- [${pkg.name}](./${PACKAGES_DIRECTORY}/${dirent.name}) - ${pkg.description}`;
 	})
 	.join("\n\n");
 
