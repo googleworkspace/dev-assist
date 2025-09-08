@@ -61,7 +61,7 @@ importers:
         specifier: ^3.2.4
         version: 3.2.4(@types/debug@4.1.12)(@types/node@22.15.30)(tsx@4.20.1)(yaml@2.8.0)
 
-  packages/mcp-dev-assist:
+  packages/developer-mcp:
     dependencies:
       '@modelcontextprotocol/sdk':
         specifier: ^1.11.0

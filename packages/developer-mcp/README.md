@@ -1,7 +1,7 @@
-# @googleworkspace/mcp-dev-assist
+# @googleworkspace/developer-mcp
 
-[![npm version](https://img.shields.io/npm/v/%40googleworkspace%2Fmcp-dev-assist)](https://www.npmjs.com/package/@googleworkspace/mcp-dev-assist)
-![NPM Downloads](https://img.shields.io/npm/dm/%40googleworkspace%2Fmcp-dev-assist)
+[![npm version](https://img.shields.io/npm/v/%40googleworkspace%2Fdeveloper-mcp)](https://www.npmjs.com/package/@googleworkspace/developer-mcp)
+![NPM Downloads](https://img.shields.io/npm/dm/%40googleworkspace%2Fdeveloper-mcp)
 ![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/googleworkspace/dev-assist)
 ![GitHub last commit](https://img.shields.io/github/last-commit/googleworkspace/dev-assist)
 ![GitHub License](https://img.shields.io/github/license/googleworkspace/dev-assist)
@@ -23,7 +23,7 @@ To get started, you can add this server to your MCP client configuration.
 {
   "type": "stdio",
   "command": "npx",
-  "args": ["-y", "@googleworkspace/mcp-dev-assist"]
+  "args": ["-y", "@googleworkspace/developer-mcp"]
 }
 ```
 
