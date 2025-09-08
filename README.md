@@ -1,6 +1,4 @@
-**NOTE:** Refactor in progress. This code is not currently functional. Please submit issues with ideas and feedback.
-
----
+## **NOTE:** Refactor in progress. The MCP Server has been moved to its own repository at [googleworkspace/developer-mcp](https://github.com/googleworkspace/developer-mcp).
 
 # Google Workspace Developer Assist
 
@@ -16,8 +14,6 @@ This is a monorepo for the Google Workspace Developer Assist project.
 <!-- packages -->
 
 - [@googleworkspace/card-dev-assist](./packages/card-dev-assist) - Utility functions for Google Workspace card development.
-
-- [@googleworkspace/developer-mcp](./packages/developer-mcp) - An MCP (Model Context Protocol) server for accessing and searching Google Workspace documentation, enabling AI assistants and tools to retrieve up-to-date information.
 
 <!-- /packages -->
 

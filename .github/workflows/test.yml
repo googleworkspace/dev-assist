@@ -28,4 +28,3 @@ jobs:
       - run: pnpm lint
       - run: pnpm check
       - run: pnpm test
-      - run: docker build . --file Dockerfile
