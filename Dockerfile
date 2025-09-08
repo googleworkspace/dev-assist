@@ -23,10 +23,10 @@ WORKDIR /usr/src/app
 
 RUN pnpm install --frozen-lockfile
 RUN pnpm build
-RUN pnpm deploy --filter="@googleworkspace/mcp-dev-assist" --prod /prod/mcp-dev-assist
+RUN pnpm deploy --filter="@googleworkspace/developer-mcp" --prod /prod/developer-mcp
 
-FROM base AS mcp-dev-assist
-COPY --from=build /prod/mcp-dev-assist /prod/mcp-dev-assist
-WORKDIR /prod/mcp-dev-assist
+FROM base AS developer-mcp
+COPY --from=build /prod/developer-mcp /prod/developer-mcp
+WORKDIR /prod/developer-mcp
 EXPOSE 8000
 CMD [ "node", "dist/index.js" ]

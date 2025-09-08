@@ -1,5 +1,5 @@
 {
-  "name": "@googleworkspace/mcp-dev-assist",
+  "name": "@googleworkspace/developer-mcp",
   "version": "0.6.0",
   "description": "An MCP (Model Context Protocol) server for accessing and searching Google Workspace documentation, enabling AI assistants and tools to retrieve up-to-date information.",
   "license": "Apache-2.0",
@@ -27,7 +27,7 @@
   ],
   "type": "module",
   "bin": {
-    "googleworkspace-mcp-dev-assist": "dist/index.js"
+    "googleworkspace-developer-mcp": "dist/index.js"
   },
   "main": "dist/index.js",
   "scripts": {
