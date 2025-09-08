@@ -7,7 +7,7 @@
 [![Test](https://github.com/googleworkspace/dev-assist/actions/workflows/test.yml/badge.svg)](https://github.com/googleworkspace/dev-assist/actions/workflows/test.yml)
 [![Release](https://github.com/googleworkspace/dev-assist/actions/workflows/release.yml/badge.svg)](https://github.com/googleworkspace/dev-assist/actions/workflows/release.yml)
 [![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTING.md)
-[![GitHub issues](https://img.shields.io/github/issues/googleworkspace/developer-mcp?style=flat-square)](https://github.com/googleworkspace/developer-mcp/issues)
+[![GitHub issues](https://img.shields.io/github/issues/googleworkspace/dev-assist?style=flat-square)](https://github.com/googleworkspace/dev-assist/issues)
 
 This is a monorepo for the Google Workspace Developer Assist project.
 
