@@ -1,4 +1,4 @@
-**NOTE:** Refactor in progress. This code is not currently functional. Please submit issues with ideas and feedback.
+**NOTE:** See https://developers.google.com/workspace/guides/build-with-llms.
 
 ---
 
